@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecommerce Trend Analyzer</title>
+</head>
+<body>
+  <h1>Ecommerce Trend Analyzer</h1>
+  <input type="text" id="productData" placeholder="Enter product data URL">
+  <button onclick="getTrends()">Get Trends</button>
+  <div id="trends"></div>
+
+  <script>
+    function getTrends() {
+      var productData = document.getElementById('productData').value;
+      google.script.run.withSuccessHandler(displayTrends).getTrends(productData);
+    }
+
+    function displayTrends(data) {
+      document.getElementById('trends').innerHTML = data;
+    }
+  </script>
+</body>
+</html>
